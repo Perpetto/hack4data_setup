@@ -1,1 +1,11 @@
 elasticsearch>=1.0.0,<2.0.0
+tornado==4.2
+matplotlib
+pandas
+ipython
+markupsafe
+zmq
+singledispatch
+backports_abc
+certifi
+jsonschema
