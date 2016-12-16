@@ -8,7 +8,7 @@ Today you will deal with the following technologies:
 We have set up a server for you guys with some e-commerce data.
 
 What you can do (these are **suggestions** - you can do **anything you like, really**!):
-* Familiarize yourself with  [PredictionIO](http://predictionio.incubator.apache.org/) machine learning framework and [Spark](http://spark.apache.org/). Download a few of the example PredictionIO templates below and try to get them up and running:
+* [Scala] Familiarize yourself with  [PredictionIO](http://predictionio.incubator.apache.org/) machine learning framework and [Spark](http://spark.apache.org/). Download a few of the example PredictionIO templates below and try to get them up and running:
   - [Similar Product](https://github.com/apache/incubator-predictionio-template-similar-product)
   - [Ecommerce Recommendation](https://github.com/apache/incubator-predictionio-template-ecom-recommender)
   - [Frequent Pattern Mining](https://github.com/goliasz/pio-template-fpm)
@@ -19,8 +19,9 @@ What you can do (these are **suggestions** - you can do **anything you like, rea
 
   - If the file contains an 'appId' key, change it to 1.
   - If the file contains an 'appName' key, change it to 'perpetto'.
+* [Python] Play around with Spark (state-of-the-art engine for large-scale data processing) - see [this readme](https://github.com/Perpetto/hack4data_setup/blob/master/python/Readme.md) for details.
 
-* Get familiar with Elasticsearch by running aggregations and gathering statistics. Some examples ay be:
+* [Ruby / Python] Get familiar with Elasticsearch by running aggregations and gathering statistics. Some examples ay be:
   - Most Popoular Categories / Brands by Sessions
   - Most Popular Categories / Brands by Orders
   - Most Popular Items
@@ -28,8 +29,8 @@ What you can do (these are **suggestions** - you can do **anything you like, rea
   - Months with the Most Orders
   - Most Effective Slots by Viewed Recommendations (ask us for details on this one)
 
-* Build a PredictionIO template on your own starting with this [skeleton template](https://github.com/apache/incubator-predictionio-template-skeleton)!
-* Build a website / web service that utilizes machine learning technology! See (http://predictionio.incubator.apache.org/demo/tapster/) for some inspiration.
+* [Scala] Build a PredictionIO template on your own starting with this [skeleton template](https://github.com/apache/incubator-predictionio-template-skeleton)!
+* [Scala, Ruby/Python] Build a website / web service that utilizes machine learning technology! See (http://predictionio.incubator.apache.org/demo/tapster/) for some inspiration.
 
 
 The server contains the following:
