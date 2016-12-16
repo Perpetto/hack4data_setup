@@ -1,14 +1,37 @@
 # Hello, and welcome to HackFMI 8 - Hack for data!
 
 Today you will deal with the following technologies:
-- Elasticsearch
-- Spark + PredictionIO
-- Hbase
+- [Elasticsearch](https://www.elastic.co/products/elasticsearch)
+- [Apache Spark](http://spark.apache.org/) + [PredictionIO](http://predictionio.incubator.apache.org/)
+- [Apache Hbase](https://hbase.apache.org/)
 
 We have set up a server for you guys with some e-commerce data.
-The server contins the following
 
-I.Elasticsearch instance, containing the following:
+What you can do (these are **suggestions** - you can do **anything you like, really**!):
+* Familiarize yourself with  [PredictionIO](http://predictionio.incubator.apache.org/) machine learning framework and [Spark](http://spark.apache.org/). Download a few of the example machine learning engines below and try to get them up and running:
+  - [Similar Product](https://github.com/apache/incubator-predictionio-template-similar-product)
+  - [Ecommerce Recommendation](https://github.com/apache/incubator-predictionio-template-ecom-recommender)
+  - [Frequent Pattern Mining](https://github.com/goliasz/pio-template-fpm)
+  - [Complementary Purchase](https://github.com/PredictionIO/template-scala-parallel-complementarypurchase)
+  - [Product Ranking](https://github.com/PredictionIO/template-scala-parallel-productranking)
+  
+  When you try and use the templates, you can change engine.json as follows to utilize the e-commerce dataset we have prepared for you:
+  
+  - If the file contains an 'appId' key, change it to 1.
+  - If the file contains an 'appName' key, change it to 'perpetto'.
+  
+* Get familiar with Elasticsearch by running aggregations and gathering statistics. Some examples ay be:
+  - Most Popoular Categories / Brands by Sessions
+  - Most Popular Categories / Brands by Orders
+  - Most Popular Items
+  - Most Active Users
+  - Months with the Most Orders
+  - Most Effective Slots by Viewed Recommendations (ask us for details on this one)
+
+
+The server contains the following:
+
+I.Elasticsearch instance, containing e-commerce data as follows:
 
 - profiles (index)
   - profile (type) - contains profile data
@@ -26,10 +49,13 @@ eventType    entityType    entityId    targetEntityType    targetEntityId    eve
 'buy'        'user'        <pid>       'item'              <iid>             <ISO 8601 date>   -
 'view'        'user'       <pid>       'item'              <iid>             <ISO 8601 date>   -
 ```
-$set events are used to set properties for entities
-view /buys events are used to store relationships between users and items.
-<pid> is the profile id for a profile document in elasticsearch
-<iid> is the item id for an item document in elasticsearch
+$set events are used to set properties for entities.
+
+view / buys events are used to store relationships between users and items.
+
+<pid> is the profile id for a profile document in elasticsearch.
+
+<iid> is the item id for an item document in elasticsearch.
 
 
 # Elasticsearch setup
@@ -39,12 +65,12 @@ require 'elasticsearch'
 client = Elasticsearch::Client.new log: true
 ```
 
-## searching
+## Searching
 ```
 client.search(index: 'profiles', type: 'session', body: {})
 ```
 
-## counting
+## Counting
 ```
 client.count(index: 'profiles', type: 'session', body: {query: {term: {domain_id: 1}}})
 ```
