@@ -29,6 +29,7 @@ What you can do (these are **suggestions** - you can do **anything you like, rea
   - Most Effective Slots by Viewed Recommendations (ask us for details on this one)
 
 * Build a PredictionIO template on your own starting with this [skeleton template](https://github.com/apache/incubator-predictionio-template-skeleton)!
+* Build a website / web service that utilizes machine learning technology! See (http://predictionio.incubator.apache.org/demo/tapster/) for some inspiration.
 
 
 The server contains the following:
