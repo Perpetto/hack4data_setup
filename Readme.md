@@ -29,7 +29,12 @@ What you can do (these are **suggestions** - you can do **anything you like, rea
   - Most Effective Slots by Viewed Recommendations (ask us for details on this one)
 
 
+
+
+
 The server contains the following:
+
+
 
 I.Elasticsearch instance, containing e-commerce data as follows:
 
@@ -39,6 +44,8 @@ I.Elasticsearch instance, containing e-commerce data as follows:
   - order (type) - contains profile cart/order data. A cart whill have a paid: true property if it has been purchased.
 - items (index)
   - item (type) - contains item data
+
+
 
 
 II.Hbase / PredictionIO instance, containing e-commerce data in the form of events:
@@ -53,9 +60,9 @@ $set events are used to set properties for entities.
 
 view / buys events are used to store relationships between users and items.
 
-<pid> is the profile id for a profile document in elasticsearch.
+'pid' is the profile id for a profile document in elasticsearch.
 
-<iid> is the item id for an item document in elasticsearch.
+'iid' is the item id for an item document in elasticsearch.
 
 
 # Elasticsearch setup
@@ -75,7 +82,7 @@ client.search(index: 'profiles', type: 'session', body: {})
 client.count(index: 'profiles', type: 'session', body: {query: {term: {domain_id: 1}}})
 ```
 
-## iterating over documents in index with a given type
+## Iterating over documents in index with a given type
 ```
 # the body parameter accepts a query
 r = client.search(index: 'profiles', type: 'session', search_type: 'scan', scroll: '50s', body: {})
