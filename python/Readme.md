@@ -6,35 +6,36 @@ sudo pip install -r requirements.txt
 # Run Python Console
 ```
 python
+# do stuff with elasticsearch
 ```
 
-# Elasticsearch setup
+# Play around with Spark
 ```
-from elasticsearch import Elasticsearch
-es = Elasticsearch()
-```
+scripts/start_ipython.sh
+# !! IMPORTANT: paste the commands below one per line or it won't work
+%run -i 'bootstrap.py'
 
-## Searching
-```
-client.search(index: 'profiles', type: 'session', body: {})
-```
+# load a dump of our HBASE data
+# You now have an RDD that you can apply transofmrations to. See the Spark programming guide link below.
+rdd = sqlc.read.parquet("/tmp/perpetto-dump-new.parquet")
 
-## Counting
-```
-client.count(index: 'profiles', type: 'session', body: {query: {term: {domain_id: 1}}})
-```
+# You now have a Hive table that you can use to run queries against the data.
+rdd.registerTempTable("events")
 
-## Iterating over documents in index with a given type
-```
-# the body parameter accepts a query
-r = client.search(index: 'profiles', type: 'session', search_type: 'scan', scroll: '50s', body: {})
-while r = client.scroll(scroll_id: r['_scroll_id'], scroll: '50s') and not r['hits']['hits'].empty? do
-  r['hits']['hits'].each { |hit|
-    # puts hit
-  }
-end
+# Execute a Query
+summary = sqlc.sql("SELECT "
+                   "entityType, event, targetEntityType, COUNT(*) AS c "
+                   "FROM events "
+                   "GROUP BY entityType, event, targetEntityType").collect()
+
+# Visualize Result as Table
+rows_to_df(summary)
+
+# Save Result to File (Locally)
+write_to_json("results.json", summary)
 ```
 
 ## Additional Resources
+- [Spark Programming Guide](http://spark.apache.org/docs/1.6.2/programming-guide.html) (Look at Python examples)
 - [Elasticsearch Python SDK](https://elasticsearch-py.readthedocs.io/en/master/)
 - [PredictionIO EventServer REST API](http://predictionio.incubator.apache.org/datacollection/eventapi/)
