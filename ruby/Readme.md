@@ -1,5 +1,6 @@
 # Install Dependencies
 ```
+cd ruby
 bundle install
 ```
 
