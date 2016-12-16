@@ -9,7 +9,15 @@ python
 # do stuff with elasticsearch
 ```
 
-# Play around with Spark
+# Play around with Spark (Web-based, can daw histograms, save as PDF, etc!)
+```
+scripts/start_notebook.sh
+# Note the port number where it's running, then in a separate terminal, create a tunnel:
+
+ssh -A -L 8888:localhost:<port> <user>@ptto-hackfmi.westeurope.cloudapp.azure.com
+```
+
+# Play around with Spark (Shell-based)
 ```
 scripts/start_ipython.sh
 # !! IMPORTANT: paste the commands below one per line or it won't work
@@ -34,6 +42,7 @@ rows_to_df(summary)
 # Save Result to File (Locally)
 write_to_json("results.json", summary)
 ```
+
 
 ## Additional Resources
 - [Spark Programming Guide](http://spark.apache.org/docs/1.6.2/programming-guide.html) (Look at Python examples)
