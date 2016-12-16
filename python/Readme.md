@@ -36,5 +36,5 @@ end
 ```
 
 ## Additional Resources
-[Elasticsearch Python SDK](https://elasticsearch-py.readthedocs.io/en/master/)
-[PredictionIO EventServer REST API](http://predictionio.incubator.apache.org/datacollection/eventapi/)
+- [Elasticsearch Python SDK](https://elasticsearch-py.readthedocs.io/en/master/)
+- [PredictionIO EventServer REST API](http://predictionio.incubator.apache.org/datacollection/eventapi/)

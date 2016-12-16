@@ -37,5 +37,5 @@ end
 ```
 
 ## Additional Resources
-[Elasticsearch Ruby SDK](http://www.rubydoc.info/gems/elasticsearch-api)
-[PredictionIO EventServer REST API](http://predictionio.incubator.apache.org/datacollection/eventapi/)
+- [Elasticsearch Ruby SDK](http://www.rubydoc.info/gems/elasticsearch-api)
+- [PredictionIO EventServer REST API](http://predictionio.incubator.apache.org/datacollection/eventapi/)
